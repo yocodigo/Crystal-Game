@@ -3,6 +3,8 @@ $(document).ready(function(){
 	//DECLARE & INITIALIZE GLOBAL VARIABLES
 	var computerPick = 0;
 	var totalScore = 0;
+	var wins = 0;
+	var losses = 0;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 	//COMPUTER'S RANDOM NUMBER GENERATOR
 	resetComputerPick();
@@ -21,20 +23,23 @@ $(document).ready(function(){
 			$("#score").html(totalScore);
 			console.log(totalScore == computerPick);
 		}	
-	});//AddToScore Function closing brackets
+	
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-	//COMPARE YOUR PICK WITH COMPUTER'S PICK
-	if (totalScore == computerPick) {
-		$("#result").text("Yep! You got it! Refresh the page to play again.");
-		resetComputerPick();
-		resetButtonValues();
-	}
-	else if (totalScore >= computerPick) {
-		$("#result").text("Nope. Refresh the page to play again.");
-		lockGame = true;
-		resetComputerPick();
-		resetButtonValues();
-	}
+		//COMPARE YOUR PICK WITH COMPUTER'S PICK
+		if (totalScore == computerPick) {
+			$("#result").html("Yep! You got it! Refresh the page to play again.");
+			resetComputerPick();
+			resetButtonValues();
+			wins++;
+		}
+		else if (totalScore >= computerPick) {
+			$("#result").html("Nope. Refresh the page to play again.");
+			lockGame = true;
+			resetComputerPick();
+			resetButtonValues();
+			losses++;
+		}
+	});//AddToScore Function closing brackets
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 	//RESET COMPUTER'S PICK
 	function resetComputerPick() {
@@ -60,4 +65,5 @@ $(document).ready(function(){
 		$("#button3").attr("value", randomNum3);
 		$("#button4").attr("value", randomNum4);
 	}
+	
 });//document ready closing brackets
