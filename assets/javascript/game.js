@@ -14,8 +14,10 @@ $(document).ready(function(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//ADD TO SCORE WHEN CRYSTALS ARE CLICKED
 	$("img").on("click", function() {
+		$("#result").attr("src", "");
+		$("#result2").text("")
 		lockGame = false;
-		$("#result").html("---------------");
+		// $("#result").html("---------------");
 		if (lockGame !== true) {
 			yourPick = $(this).attr("value");
 			console.log("Your Pick: " + computerPick);
@@ -27,7 +29,8 @@ $(document).ready(function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 		//COMPARE YOUR PICK WITH COMPUTER'S PICK
 		if (totalScore == computerPick) {
-			$("#result").html("You Win!");
+			$("#result").attr("src", "assets/images/winpic2.png");
+			$("#result2").text("Click on any crystal to restart the game.")
 			resetComputerPick();
 			resetCrystalValues();
 			wins++;
@@ -36,7 +39,8 @@ $(document).ready(function(){
 			$("#score").html(totalScore);
 		}
 		else if (totalScore >= computerPick) {
-			$("#result").html("You Lose! Press any crystal to play again.");
+			$("#result").attr("src", "assets/images/losepic2.jpg");
+			$("#result2").text("Click on any crystal to restart the game.")
 			lockGame = true;
 			resetComputerPick();
 			resetCrystalValues();
