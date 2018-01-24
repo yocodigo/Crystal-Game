@@ -47,7 +47,7 @@ $("button").on("click", function() {
 
 		}
 		else if (totalScore >= computerPick) {
-			$("#result").html("You Lose!");
+			$("#result").html("You Lose! Press any crystal to play again.");
 			lockGame = true;
 			resetComputerPick();
 			resetCrystalValues();
