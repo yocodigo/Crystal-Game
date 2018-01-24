@@ -5,7 +5,6 @@ $(document).ready(function(){
 	var totalScore = 0;
 	var wins = 0;
 	var losses = 0;
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
 	//COMPUTER'S RANDOM NUMBER GENERATOR
 	resetComputerPick();
@@ -35,7 +34,6 @@ $(document).ready(function(){
 			$("#win").html(wins);
 			totalScore = 0;
 			$("#score").html(totalScore);
-
 		}
 		else if (totalScore >= computerPick) {
 			$("#result").html("You Lose! Press any crystal to play again.");
